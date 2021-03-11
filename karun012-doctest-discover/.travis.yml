@@ -1,0 +1,20 @@
+notifications:
+  email: false
+
+language: nix
+
+cache:
+  directories:
+    - $HOME/.stack
+    - /nix/store
+
+before_install:
+  - nix-env -i stack
+
+install:
+  - stack install --no-terminal --install-ghc --only-dependencies
+
+script:
+  - stack build 
+  - stack test --no-terminal 
+

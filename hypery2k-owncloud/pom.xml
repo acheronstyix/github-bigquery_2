@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.martinreinhardt-online.owncloud</groupId>
+		<artifactId>owncloud-parent-pom</artifactId>
+		<version>2.7.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>roundcube</artifactId>
+	<name>Owncloud App - Roundcube</name>
+	<packaging>php</packaging>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/php</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>${frontend-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>install node and npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+                        <configuration>
+                            <nodeVersion>${node.version}</nodeVersion>
+                            <npmVersion>${npm.version}</npmVersion>
+                        </configuration>
+					</execution>
+					<execution>
+						<id>npm install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>bower</id>
+						<goals>
+							<goal>grunt</goal>
+						</goals>
+						<configuration>
+							<arguments>bower:install</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>javascript tests</id>
+						<goals>
+							<goal>karma</goal>
+						</goals>
+						<phase>test</phase>
+						<configuration>
+							<karmaConfPath>src/test/webapp/karma.conf.ci.js</karmaConfPath>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>${maven-eclipse-plugin.version}</version>
+				<configuration>
+					<additionalBuildcommands>
+						<buildcommand>
+							org.eclipse.wst.validation.validationbuilder
+						</buildcommand>
+						<buildcommand>
+							org.eclipse.dltk.core.scriptbuilder
+						</buildcommand>
+					</additionalBuildcommands>
+					<additionalProjectnatures>
+						<projectnature>
+							org.eclipse.php.core.PHPNature
+						</projectnature>
+					</additionalProjectnatures>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.phpmaven</groupId>
+				<artifactId>maven-php-plugin</artifactId>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.phpmaven</groupId>
+				<artifactId>maven-php-phpunit</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${maven-assembly-plugin.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.phpmaven</groupId>
+						<artifactId>maven-php-plugin</artifactId>
+						<version>${maven-php.version}</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/assembly/application.xml</descriptor>
+					</descriptors>
+					<finalName>${artifactId}_v${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}_build${env.BUILD_NUMBER}
+					</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<configuration>
+					<reportPlugins>
+						<plugin>
+							<groupId>org.phpmaven</groupId>
+							<artifactId>maven-php-plugin</artifactId>
+							<version>${maven-php.version}</version>
+							<reportSets>
+								<reportSet>
+									<reports>
+										<!-- <report>phpdocumentor</report> -->
+										<report>phpunit-coverage</report>
+										<report>phpunit</report>
+									</reports>
+								</reportSet>
+							</reportSets>
+						</plugin>
+					</reportPlugins>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- phpUnit for PHP 5 -->
+		<dependency>
+			<groupId>org.phpunit</groupId>
+			<artifactId>phpunit5</artifactId>
+			<version>${phpunit5.version}</version>
+		</dependency>
+	</dependencies>
+
+</project>

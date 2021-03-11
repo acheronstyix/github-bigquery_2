@@ -1,0 +1,101 @@
+language: android
+
+env:
+  global:
+  - CI_NAME=travis-ci
+  # coveralls repo token
+  - secure: Q4dXi7tRbW3ilrZD0uxVTJLoFx4azlGWvdk5GsVkEfFxfMpb0PCV03KgrzReBhCaYC+uN8bkF80aGv0KlVcbrZtmRAVCGDcK8fbP6q8t9l1/YWTeO6i/Pgbri8h7ozrtUtlCv+5c2liBdjwNM6XVI597+VOl1GzAw/5UWqrDCAOin0Ev/JccVLU6/4hJfDGN1Ek/S2UpqozbUNHBYUHHDKqLMud4QhnklIMUHubOT/hBAcS5qZaARoBo7tc0goBry+1LAUrsPSv5mebyq7c2blr3VlrlVxNdfQearDQ6RZBiyABnD9eCCWRMb2XTk7lGXISKkfH9rPys/Wu/DIVHgP/u1qCcv5woDVPK4mXLxY7yafW98EawJxMSppxdNOqq7+MMHE9FNyW0qVtyjlMFPAEvHUBG13Lp4QOntEZWtvVsR/XMRPTn4DRp535ahGcoiyosefqplI7xamNzFdFUHcIBPnbIHyKiFizQtRKDZ0B258K16Wc3IMQTmNPozx4xlxLYvK95rAfF504j9+1+eCvl+Hq1RFGQ+Bgs4a6iMyr1ss9eRMM4SfC6AsvhlZr1FxdNb30ubpmhZz+djOeq4AAgFbLWiLhV6dWS4iEHZv9Y1ep9DSA09+fwVLFTfA5ZHR0uVgYz4k0MKOH5ZrtusH2bBvxUBT6yziko/F5dWpM=
+  # bintray user
+  - secure: Hp8Rz0peXVEB6B0Dre/+iS1ezo2icgx5jTQ/MmAbNgCcqvXqnUPXF0osR5osFF99VGf6QVoo1hXSgOq/OKeVniXvaLQyxpPCAKSJInJhvyyuGlEFUQAygoDZU2CRw088/Qo2ShLqC08jwi+fGLLqYAx7S/cITcaH6tEobXIvwHIj8U1fuICO5MCtHtxjEfENSYc9dTZFfPgBe8IcNq+G7OqCqFsw7yhbglKky8by5Z4goka/JleEQPYrVQPOwiWO8STjj8L+YfdTRr04BzA+CR6zu6IAIdGRYht0SXogQnNpCMvGC45xNsgVPrhaUjSNn3kj1UQwBtB914LiBch4yA4pxKn16fs/BcZA24Im2l2dfqnjRKWXQKPr3myvSFA44IJOunwX+a/EKXJA+UDsSTt5irDTE3Fqx1dQWNpJTdqUfqs0kGKvDTC3/I8BTPgOtYqS+soxi4GZYTdrO800q2JESwpPvwaGHueNnlFfrtFClUczjKP/+3cLT6Q8vGAATRPjUccET/tZV9/Qotb2MjzjOvTBBR/aic3B/LnOrD6cDVj28O8OkT12wUot1NLcLfkDH0OjZyUIuVGb6hU/8mPw/aY1UVW1fJK2IIG5ADMQ8L5HbXVad6wFU/tyKWyTssloZP3KtcqU1JjbBBmZfZ3ZxOL+NOKAKMeUhSqjdRY=
+  # bintray api key
+  - secure: ItKQWDwGYFg5fnMdXzzzduUHmWh7cy5OXkHxyy1BE15PY0pPcN0rR5A2IMjG7o2+Z3Vf+SiXFtSjeWl3IXdpl2vaYdYIPYrjvsDbepXZze6NqNVV+mOsI/+TVDIrzTXRljSX4/CUSSkOzk4bt3ycOOWNGN1CKVDkbD8dykuqe8NeG6olUhD4YyvaY5a4l+ZOfeu7/MOUF1zvXjmikITNraDc+ATnt2tZKrtksaUYMXZJ9B5MLeIJbFAzrs9YbqxT4wJwWM8dmya7aLFIORzkwkcI5c+qWMtJuU2FoyC3txHtvtYw+jPRe4tubwU5P4SNkE3BRZdqQwV+N5txOetGawLWkWSDDeFMBm74DAWSkhpPZKyXvUop8p/2z+8cSR95T0JmXEoyzVID8Se5Efw8ezqEkgnZOVxaRNwWNZorEoBPEOyTN33B107BEVaWnTijubQcjNGqwtScJJFNoo3SnmGFGbPpcjKnGmSrberHdFGLFDuT7CqeB4xWFyYkWozcYYzTSzOilUPgmQkgZclsskmYglJDpl9YXaLVN6MYVnIA+959g4dw/McnRWxQiTyX+eVG8UGitGoL+3G4A/NgmYYtd2Ybf1sweyHfk9rIhdiEV3A50zp6rRLdanggQk3RVHO7DdCJ1aBzAFELr0uZRpC+bFRCe9leYYp/XF2SezU=
+  # bintray gpg key
+  - secure: VbdzebSSUbc49vCHRrEgDYU8GIY2YlCQx4Anf28plUEk9ROhaN/RgvVkS03p54Hz2tLdWQjzcIgtRx5qMrAZWIZ6ASwTJYmWwpNmt8SaZaQ6AMsKidNSyg3r15XRjOekQrfusSQZnZV+6JHeWcqDwRneAG9LgsL6hvbIBpnCU5O4H9k7lswdJtZMQ7V74xz4IaJbVfN+rQ73e4295h9MugzDK6MIyPao6LXW29hYHxaPAzPFQoDfdF4O+vc2MoqVqpc0paq6WNzDGVo8isFW+qngFp7hm9m/i+Upwn3iM8PnbRxCDW2ovoI9d5f0JHEfKhaiuk/K9JzAiMrpAxRculIwdw/7QsXA6tchwflXguUaIXa9aoYGYdDxpY6fGeTqePyjQP9vbK4/fBb2EM3Qh7dXuElpxq95VNxAYpCOEJ2I4PhC5Za4lcqcRSLJ5l9fe3NPYB+v+Lg98LKtUDmtmUort6vMedsYpoeiI1rdMfAEcpAiRhbnGdQdTW2dPlxtQlMnLxqAR1+u52m5tYj7kvJKRO5e9TvKKP7XdMP3Wqi1gvM14nInrvwyIEIJAx0yzRiA6yh6StQtIZ1ATof2vg0vLBEfFGENMXI5dDGPWK+lP0CBZrnU6Fxo1BXXgslm7K2puHeaDuVKdvEm8BPViuC+gkZp/GXgI1il6An7dpM=
+
+install:
+- pip install --user sphinx
+
+script:
+- cd docs
+- make html
+- cd ..
+
+android:
+  components:
+    # Uncomment the lines below if you want to
+    # use the latest revision of Android SDK Tools
+    - platform-tools
+    - tools
+
+    # The BuildTools version used by your project
+    - build-tools-23.0.3
+
+    # The SDK version used to compile your project
+    - android-23
+
+    # Additional components
+    # - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    # - addon-google_apis-google-23
+
+    # Specify at least one system image,
+    # if you need to run emulator(s) during your tests
+    # - sys-img-armeabi-v7a-android-19
+    # - sys-img-x86-android-17
+
+after_success:
+  - ./gradlew :sdk:cobertura :sdk:coveralls
+  - CURRENT_HASH=`git rev-parse HEAD`
+  - RELEASE_VERSION=`git tag | xargs -I@ git log --format=format:"%ai @%n" -1 @ | sort | awk '{print $4}' | tail -n 1`
+  - RELEASE_HASH=`git rev-list $RELEASE_VERSION -n 1`
+  - if [ "$CURRENT_HASH" = "$RELEASE_HASH" ]; then DEPLOY_DOCS=true; fi
+  - echo $RELEASE_VERSION
+  - echo $CURRENT_HASH
+  - echo $RELEASE_HASH
+  - echo $DEPLOY_DOCS
+  - test -z "$DEPLOY_DOCS" || git config --global user.email "evangelists@stormpath.com"
+  - test -z "$DEPLOY_DOCS" || git config --global user.name "stormpath-sdk-android Auto Doc Build"
+  - test -z "$DEPLOY_DOCS" || git clone git@github.com:stormpath/stormpath.github.io.git
+  - test -z "$DEPLOY_DOCS" || cd stormpath.github.io
+  - test -z "$DEPLOY_DOCS" || git fetch origin source:source
+  - test -z "$DEPLOY_DOCS" || git checkout source
+  - test -z "$DEPLOY_DOCS" || rm -rf source/android/latest
+  - test -z "$DEPLOY_DOCS" || rm -rf source/android/$RELEASE_VERSION
+  - test -z "$DEPLOY_DOCS" || cp -r ../docs/_build/html source/android/latest
+  - test -z "$DEPLOY_DOCS" || cp -r ../docs/_build/html source/android/$RELEASE_VERSION
+  - test -z "$DEPLOY_DOCS" || git add --all
+  - test -z "$DEPLOY_DOCS" || git commit -m "stormpath-sdk-android release $RELEASE_VERSION"
+  - test -z "$DEPLOY_DOCS" || ls -la source/android
+  - test -z "$DEPLOY_DOCS" || git push origin source
+  - test -z "$DEPLOY_DOCS" || gem install bundler
+  - test -z "$DEPLOY_DOCS" || bundle install
+  - test -z "$DEPLOY_DOCS" || rake setup_github_pages[git@github.com:stormpath/stormpath.github.io.git]
+  - test -z "$DEPLOY_DOCS" || cd _deploy
+  - test -z "$DEPLOY_DOCS" || git pull --no-edit -s recursive -X theirs https://github.com/stormpath/stormpath.github.io.git
+  - test -z "$DEPLOY_DOCS" || cd ..
+  - test -z "$DEPLOY_DOCS" || rake generate
+  - test -z "$DEPLOY_DOCS" || cd _deploy
+  - test -z "$DEPLOY_DOCS" || git pull --no-edit -s recursive -X theirs https://github.com/stormpath/stormpath.github.io.git
+  - test -z "$DEPLOY_DOCS" || cd ..
+  - test -z "$DEPLOY_DOCS" || rake deploy
+  - test -z "$DEPLOY_DOCS" || cd ..
+
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_568555ef9f79_key -iv $encrypted_568555ef9f79_iv -in id_rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+
+deploy:
+  provider: script
+  script: sh $TRAVIS_BUILD_DIR/deploy.sh
+  skip_cleanup: true
+  on:
+    tags: true

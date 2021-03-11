@@ -1,0 +1,43 @@
+{
+  "name": "two-string",
+  "version": "1.0.2",
+  "description": "An incredibly useful twoString utility.",
+  "keywords": [
+    "two",
+    "string",
+    "twoString"
+  ],
+  "homepage": "https://github.com/theneva/two-string",
+  "bugs": "https://github.com/theneva/two-string/issues",
+  "license": "CC0-1.0",
+  "author": "Martin Lehmann <martin@lehmann.tech> (https://github.com/theneva)",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theneva/two-string"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "cover": "rimraf coverage && mkdir coverage && mocha -R mocha-lcov-reporter > coverage/lcov.info",
+    "pretest": "npm run lint",
+    "test": "mocha -R nyan"
+  },
+  "config": {
+    "blanket": {
+      "pattern": "src"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "blanket": "^1.2.1",
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.6",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^5.0.0",
+    "eslint-plugin-react": "^3.16.1",
+    "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.0.0",
+    "rimraf": "^2.5.1"
+  },
+  "peerDependencies": {}
+}

@@ -1,0 +1,14 @@
+global:
+      type: global
+      class: Application\Shared\GlobalFunction
+before:
+      type: before
+      class: Application\Shared\BeforeFunction
+filter:
+      type: filter
+      class: GL\Core\Debug\DebugInject
+      scope: "dev"
+render:
+      type: filter
+      class: Application\Shared\AddRenderingTime
+      scope: "prod"

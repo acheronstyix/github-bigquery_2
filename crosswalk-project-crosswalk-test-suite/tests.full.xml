@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="./testcase.xsl"?>
+<test_definition>
+  <suite category="W3C/HTML5 APIs" name="webapi-appuri-w3c-tests">
+    <set name="AppURI" type="js">
+      <testcase component="W3C_HTML5 APIs/Runtime and Packaging/App URI" execution_type="auto" id="URI" priority="P1" purpose="Test URI attributes" status="approved" type="compliance" subcase="7">
+        <description>
+          <test_script_entry>/opt/webapi-appuri-w3c-tests/appuri/URI.html</test_script_entry>
+        </description>
+        <specs>
+          <spec>
+            <spec_assertion category="W3C API Specifications" element_name="protocol" element_type="attribute" interface="URI" section="Runtime(short-term)" specification="App URI"/>
+            <spec_url>http://www.w3.org/2012/sysapps/app-uri/</spec_url>
+            <spec_statement/>
+          </spec>
+        </specs>
+      </testcase>
+    </set>
+  </suite>
+</test_definition>

@@ -1,0 +1,19 @@
+{
+  "data": "http://www.opendatacache.com/data.cityofboston.gov/download/isap-66da/application/pdf", 
+  "description": "\"Industry Profiles\" is a series on the largest industries in Boston. They contain facts on employment, major employers, education, and more. This report highlights Boston's Healthcare and Social Assistance industry.", 
+  "load": "pdftotext", 
+  "maintainer": {
+    "@id": "https://github.com/talos/docker4data"
+  }, 
+  "metadata": {
+    "attribution": "Boston Redevelopment Authority", 
+    "description": "\"Industry Profiles\" is a series on the largest industries in Boston. They contain facts on employment, major employers, education, and more. This report highlights Boston's Healthcare and Social Assistance industry.", 
+    "socrata": {
+      "@id": "http://www.opendatacache.com/data.cityofboston.gov/api/views/isap-66da.json"
+    }
+  }, 
+  "name": "Industry Highlight: Healthcare and Social Assistance Industry", 
+  "schema": "socrata/data.cityofboston.gov", 
+  "status": "needs review", 
+  "table": "industry_highlight_healthcare_and_social_assistance_industry"
+}

@@ -1,0 +1,33 @@
+{
+    "name": "ionic-boilerplate",
+    "appName": "Ionic Boilerplate",
+    "id": "com.wuneo.boilerplate.ionic",
+    "version": "0.8.0",
+    "build-version": "888",
+    "dev-version": "0.6.6-20161223",
+    "description": "A project boilerplate for starting development with Ionic v1 framework.",
+    "keywords": [
+        "ionic",
+        "boilerplate",
+        "angular",
+        "gulp",
+        "browserify",
+        "sass",
+        "karma",
+        "protractor",
+        "mocha",
+        "chai",
+        "sinon"
+    ],
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cowfox/ionic-boilerplate"
+    },
+    "author": {
+        "name": "Lei SHI",
+        "email": "foxshee@gmail.com",
+        "url": "http://5neo.be"
+    },
+    "contributors": []
+}

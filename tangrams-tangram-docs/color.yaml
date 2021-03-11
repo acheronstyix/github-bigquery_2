@@ -1,0 +1,67 @@
+cameras:
+    camera1:
+        type: isometric
+
+styles:
+    buildings:
+        base: polygons
+        animated: true
+        shaders:
+            blocks:
+                color: |
+                    vec3 pos = worldPosition().xyz*0.01;
+                    color.r *= sin(pos.x + u_time * 0.5);
+                    color.g *= sin(pos.x + u_time * 1.0);
+                    color.b *= sin(pos.x + u_time * 1.5);
+
+sources:
+    nextzen:
+        type: TopoJSON
+        url: https://tile.nextzen.org/tilezen/vector/v1/256/all/{z}/{x}/{y}.topojson
+        url_params:
+            api_key: 3XqXMjEdT2StnrIRJ4HYbg
+        max_zoom: 16
+
+layers:
+    earth:
+        data:
+            source: nextzen
+            layer: earth
+        draw:
+            polygons:
+                order: 0
+                color: '#ddeeee'
+    water:
+        data:
+            source: nextzen
+            layer: water
+        draw:
+            polygons:
+                order: 1
+                color: '#88bbee'
+    roads:
+        data:
+            source: nextzen
+            layer: roads
+        filter: { not: { kind: [path, ferry, rail] } }
+        draw:
+            lines:
+                order: 2
+                color: gray
+                width: 8
+        highway:
+            filter:
+                kind: highway
+            draw:
+                lines:
+                    width: 12
+    buildings:
+        data:
+            source: nextzen
+            layer: buildings
+        draw:
+            polygons:
+                style: buildings
+                order: 3
+                color: white
+                extrude: true

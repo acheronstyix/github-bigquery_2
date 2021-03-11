@@ -1,0 +1,10 @@
+resolver: lts-5.10
+ghc-build: nopie
+extra-deps:
+- ghc-simple-0.3
+- shellmate-0.3.4
+- shellmate-extras-0.3.4.1
+- http-conduit-2.2.3
+- http-client-0.5.4
+- http-client-tls-0.3.3
+- tagged-0.8.6

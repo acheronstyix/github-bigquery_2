@@ -1,0 +1,50 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "enderutilities:item_default"
+    },
+    "variants": {
+        "tex": {
+            "charged_0": {
+                "textures": {
+                    "layer0": "enderutilities:items/endercapacitor_charged_0"
+                }
+            },
+            "charged_1": {
+                "textures": {
+                    "layer0": "enderutilities:items/endercapacitor_charged_1"
+                }
+            },
+            "charged_2": {
+                "textures": {
+                    "layer0": "enderutilities:items/endercapacitor_charged_2"
+                }
+            },
+            "charged_3": {
+                "textures": {
+                    "layer0": "enderutilities:items/endercapacitor_charged_3"
+                }
+            },
+            "empty_0": {
+                "textures": {
+                    "layer0": "enderutilities:items/endercapacitor_empty_0"
+                }
+            },
+            "empty_1": {
+                "textures": {
+                    "layer0": "enderutilities:items/endercapacitor_empty_1"
+                }
+            },
+            "empty_2": {
+                "textures": {
+                    "layer0": "enderutilities:items/endercapacitor_empty_2"
+                }
+            },
+            "empty_3": {
+                "textures": {
+                    "layer0": "enderutilities:items/endercapacitor_empty_3"
+                }
+            }
+        }
+    }
+}
